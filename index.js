@@ -9,3 +9,5 @@ server.use(cors());
 
 
 server.listen(5000)
+
+const api = 'http://localhost:5000';
