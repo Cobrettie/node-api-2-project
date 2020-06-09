@@ -1,13 +1,4 @@
-const express = require('express');
-const cors = require('cors');
-const shortid = require('shortid')
-
-const server = express();
-
-server.use(express.json());
-server.use(cors());
-
+// create a server and start it listening
+const server = require('./server');
 
 server.listen(5000)
-
-const api = 'http://localhost:5000';
