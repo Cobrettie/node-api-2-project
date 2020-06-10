@@ -1,8 +1,18 @@
 // router object for all /api/posts handlers/middleware/endpoints
 
 const express = require('express');
-const Posts = require('../data/db');
+const posts = require('../data/db');
+
+// creates a new standalone express router
 const router = express.Router();
+
+router.get('/api/posts', (req, res) => {
+  posts.find(req.body)
+    .then(posts => res.status(200).json(posts))
+    .catch(err => {
+      res.status(500).json({ error: "The posts information could not be retrieved." })
+    })
+})
 
 router.post('/api/posts', (req, res) => {
   if (!req.body.title || !req.body.contents) {
@@ -11,7 +21,7 @@ router.post('/api/posts', (req, res) => {
     })
   }
 
-  Posts.insert(req.body)
+  posts.insert(req.body)
     .then(post => {
       res.status(201).json(post)
     })
