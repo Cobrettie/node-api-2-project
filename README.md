@@ -100,9 +100,9 @@ When the client makes a `POST` request to `/api/posts`:
   - [x] return the newly created _post_.
 
 - If there's an error while saving the _post_:
-  - cancel the request.
-  - respond with HTTP status code `500` (Server Error).
-  - return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `500` (Server Error).
+  - [x] return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
 
 When the client makes a `POST` request to `/api/posts/:id/comments`:
 
