@@ -1,7 +1,7 @@
 // router object for all /api/posts handlers/middleware/endpoints
 
 const express = require('express');
-const Posts = require('./data/db');
+const Posts = require('../data/db');
 const router = express.Router();
 
 router.post('/api/posts', (req, res) => {
@@ -19,3 +19,9 @@ router.post('/api/posts', (req, res) => {
       res.status(500).json({ error: "There was an error while saving the post to the database" })
     })
 })
+
+router.post('/api/posts/:id/comments', (req, res) => {
+  if (req) {}
+})
+
+module.exports = router;
