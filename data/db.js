@@ -13,6 +13,8 @@ module.exports = {
   insertComment,
 };
 
+// handlers for the API
+
 function find() {
   return db('posts');
 }

@@ -18,4 +18,18 @@ server.get('/', (req, res) => {
 
 
 
+// begin mvp
+
+server.post('/api/posts', (req, res) => {
+  const { title, contents } = req.body;
+
+  if (!title || !contents) {
+    res.status(400).json({ errorMessage: "Please provide title and contents for the post." })
+  }
+
+  res.status(201).json()
+})
+
+
+
 module.exports = server;
