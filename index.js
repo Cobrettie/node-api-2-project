@@ -5,8 +5,6 @@ const postsRouter = require('./routers/posts-router');
 // const cors = require('cors');
 // server.use(cors());
 
-const api = 'http://localhost:5000';
-
 const server = express();
 const PORT = 5000;
 
