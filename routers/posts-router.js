@@ -7,7 +7,7 @@ const posts = require('../data/db');
 const router = express.Router();
 
 router.get('/api/posts', (req, res) => {
-  posts.find(req.body)
+  posts.find()
     .then((posts) => res.status(200).json(posts))
     .catch(err => {
       console.log(err);
