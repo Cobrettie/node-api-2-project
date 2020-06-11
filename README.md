@@ -104,7 +104,7 @@ When the client makes a `POST` request to `/api/posts`:
   - [x] respond with HTTP status code `500` (Server Error).
   - [x] return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
 
-When the client makes a `POST` request to `/api/posts/:id/comments`:
+<!-- When the client makes a `POST` request to `/api/posts/:id/comments`:
 
 - If the _post_ with the specified `id` is not found:
 
@@ -126,7 +126,7 @@ When the client makes a `POST` request to `/api/posts/:id/comments`:
 - If there's an error while saving the _comment_:
   - [x] cancel the request.
   - [x] respond with HTTP status code `500` (Server Error).
-  - [x] return the following JSON object: `{ error: "There was an error while saving the comment to the database" }`.
+  - [x] return the following JSON object: `{ error: "There was an error while saving the comment to the database" }`. -->
 
 When the client makes a `GET` request to `/api/posts`:
 
@@ -163,13 +163,13 @@ When the client makes a `DELETE` request to `/api/posts/:id`:
 
 - If the _post_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+  - [x] return HTTP status code `404` (Not Found).
+  - [x] return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
 
 - If there's an error in removing the _post_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The post could not be removed" }`.
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `500`.
+  - [x] return the following JSON object: `{ error: "The post could not be removed" }`.
 
 When the client makes a `PUT` request to `/api/posts/:id`:
 

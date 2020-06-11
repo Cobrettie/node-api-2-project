@@ -77,31 +77,57 @@ router.post('/api/posts', (req, res) => {
     })
 })
 
-router.post('/api/posts/:id/comments', (req, res) => {
-  if (!req.body.text) {
-    res.status(400).json({
-      errorMessage: "Please provide text for the comment."
-    })
-  }
+// router.post('/api/posts/:id/comments', (req, res) => {
+//   if (!req.body.text) {
+//     res.status(400).json({
+//       errorMessage: "Please provide text for the comment."
+//     })
+//   }
 
-  posts.findById(req.params.id)
-    .then((post) => {
-      if (post.length === 0) {
+//   posts.findById(req.params.id)
+//     .then((post) => {
+//       if (post.length === 0) {
+//         res.status(404).json({
+//           message: "The post with the specified ID does not exist."
+//         })
+//       } else if (post.length > 0) {
+//           return post
+//         }
+//     })
+//     .then((post) => {
+
+//       posts.insertComment(post)
+//         .then(comment => {
+//           res.status(201).json(comment)
+//         })
+//         .catch(err => {
+//           console.log(err)
+//           res.status(500).json({
+//             error: "There was an error while saving the comment to the database"
+//           })
+//         })
+//     })
+//     .catch(err => console.log(err))
+
+// })
+
+router.delete('/api/posts/:id', (req, res) => {
+  posts.remove(req.params.id)
+    .then((count) => {
+      if (count > 0) {
+        res.status(200).json({
+          message: "Enemy nuke incoming, it's over"
+        })
+      } else {
         res.status(404).json({
           message: "The post with the specified ID does not exist."
         })
-      } else if (post) {
-        props.insertComment(req.body.text)
-          .then(comment => {
-            res.status(201).json(comment)
-          })
-          .catch(err => {
-            console.log(err)
-            res.status(500).json({
-              error: "There was an error while saving the comment to the database"
-            })
-          })
       }
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: "The post could not be removed"
+      })
     })
 })
 
